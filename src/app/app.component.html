@@ -1,13 +1,12 @@
-<div class="contain-fluid">
-  <app-navbar></app-navbar>
-  <div class="row main-body">
-    <div class="col-3">
-      <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-9">
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="content">
       <flash-messages></flash-messages>
-      <!-- Add Here -->
       <router-outlet></router-outlet>
     </div>
+    <footer class="footer">
+    </footer>
   </div>
 </div>

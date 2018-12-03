@@ -16,7 +16,7 @@ import { AddStoreComponent } from './components/add-store/add-store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddSalespersonComponent } from './components/add-salesperson/add-salesperson.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginService } from './services/login.service'
+import { LoginService } from './services/login.service';
 import { FormsModule } from '@angular/Forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { InventoryComponent } from './components/inventory/inventory.component';

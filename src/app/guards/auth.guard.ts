@@ -8,12 +8,11 @@ export class AuthGuard implements CanActivate {
     private router: Router,
   ) { }
 
-  canActivate():boolean{
-    return true;
-    // if (window.localStorage.getItem('docID') == null) {
-    //   return false;
-    // } else {
-    //   return true;
-    //  };
+  canActivate(): boolean {
+    if (window.localStorage.getItem('salesperson_id') == null) {
+      return false;
+    } else {
+      return true;
+    };
   }
 }
