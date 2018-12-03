@@ -1,3 +1,14 @@
-<p>
-  navbar works!
-</p>
+<div class="nav navbar navbar-dark fixed-top bg-dark navbar-expand-md p-2 shadow">
+    <a [routerLink]="['/doctor']" class="navbar-brand">Sales System</a>
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a routerLink="/" class="nav-link">Login</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link">{{loggedInUser}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a href="" (click)="onLogoutClick()" class="nav-link">Logout</a>
+        </li>
+      </ul>
+</div>
