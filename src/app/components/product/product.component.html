@@ -1,1 +1,60 @@
-<p>product</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/product']">All Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['add']">Add New Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" [routerLink]="['update']">Update Product</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Product</h4>
+          <p class="category">All Products</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <th style="width:15%">Product ID</th>
+              <th style="width:15%">Name</th>
+              <th style="width:15%">Kind</th>
+              <th style="width:15%">Price</th>
+              <th style="width:15%">Cost</th>
+              <th style="width:15%">Amount</th>
+              <th style="width:10%"></th>
+              <th style="width:10%"></th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products">
+                <td>{{product.product_id}}</td>
+                <td>{{product.product_name}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.cost}}</td>
+                <td>{{product.kind}}</td>
+                <td>{{product.price}}</td>
+                <td class="">
+                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                </td>
+                <td class="">
+                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

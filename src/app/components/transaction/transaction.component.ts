@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transaction } from 'src/app/models/Transaction';
+import { SalespersonService } from '../../services/salesperson.service';
 
 @Component({
   selector: 'app-transaction',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
-
-  constructor() { }
+  transactions:Transaction[];
+  constructor(private salespersonService: SalespersonService) { }
 
   ngOnInit() {
+    this.salespersonService.getTransactions().subscribe(transactions => {
+      this.transactions = transactions
+    })
   }
 
 }

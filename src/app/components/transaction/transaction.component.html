@@ -1,1 +1,57 @@
-<p>inventory</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/transaction']">All Transactions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['add']">Add New Transaction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" [routerLink]="['update']">Update Transaction</a>
+          </li>
+      </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Transaction</h4>
+          <p class="category">All Transactions</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <th>Order ID</th>
+              <th>Order Date</th>
+              <th>Product ID</th>
+              <th>Salesperson ID</th>
+              <th>Customer ID</th>
+              <th>Quantity</th>
+              <th>Store ID</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of Transactions">
+                <td>{{transaction.transaction_id}}</td>
+                <td>{{transaction.customer_id}}</td>
+                <td>{{transaction.order_date}}</td>
+                <td>{{transaction.product_id}}</td>
+                <td>{{transaction.quantity}}</td>
+                <td>{{transaction.salesperson_id}}</td>
+                <td>{{transaction.store_id}}</td>
+                <td class="">
+                    <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,55 @@
-<p>dashboard</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/inventory']">All Inventory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['add']">Add New Inventories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" [routerLink]="['update']">Update Inventory</a>
+          </li>
+      </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Inventory</h4>
+          <p class="category">All Inventories</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <th>Order ID</th>
+              <th>Order Date</th>
+              <th>Product ID</th>
+              <th>Quantity</th>
+              <th></th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let inventory of inventories">
+                <td>{{inventory.order_id}}</td>
+                <td>{{inventory.order_date}}</td>
+                <td>{{inventory.product_id}}</td>
+                <td>{{inventory.quantity}}</td>
+                <td class="">
+                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                </td>
+                <td class="">
+                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

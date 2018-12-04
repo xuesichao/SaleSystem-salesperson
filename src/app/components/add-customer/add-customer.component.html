@@ -1,47 +1,95 @@
-<p>
-  add-customer works!
-</p>
-<div class="card card-body mb-3">
-  <form>
-    <div class="from-group">
-      <label for="">Name</label>
-      <input type="text" class="from-control" name="name" #name><br>
-      <label for="">Address</label>
-      <input type="text" class="from-control" name="address" #address><br>
-      <script>
-        function cll(id){
-          if(id=="home"){
-            eval("div1.style.display=\"\";");
-            eval("div2.style.display=\"none\";");
-          }
-          if(id=="business"){
-            eval("div2.style.display=\"\";");
-            eval("div1.style.display=\"none\";");}
-        }
-      </script>
-      <select name="kind" onChange="cll(this.value)">
-        <option value="home">Home</option>
-        <option value="business">Business</option>
-      </select>
-      <div id="div1">
-          <label for="">category</label>
-          <input type="text" class="from-control" name="category" #category><br>
-          <label for="">company_income</label>
-          <input type="text" class="from-control" name="company_income" #company_income><br>
-        </div>
-      <div id="div2">
-          <label for="">marry_status</label>
-          <input type="text" class="from-control" name="marry_status" #marry_status><br>
-          <label for="">gender</label>
-          <input type="text" class="from-control" name="gender" #gender><br>
-          <label for="">age</label>
-          <input type="text" class="from-control" name="age" #age><br>
-          <label for="">income</label>
-          <input type="text" class="from-control" name="income" #income><br>
-        </div>
-
-      
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/customer']">All Customers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['add']">Add New Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" [routerLink]="['update']">Update Customer</a>
+        </li>
+      </ul>
     </div>
-    <button (click) = "AddCustomer()">Add</button>
-  </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          Add Customer
+        </div>
+        <div class="card-body ">
+          <form #SalespersonForm="ngForm" (ngSubmit)="onSubmit(SalespersonForm)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" #salespersonName="ngModel" [ngClass]="{'is-invalid': salespersonName.errors && salespersonName.touched}"
+                [(ngModel)]="salesperson.name" required>
+              <div [hidden]="!salespersonName.errors?.required" class="invalid-feedback">
+                Name required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" #salespersonEmail="ngModel" [ngClass]="{'is-invalid': salespersonEmail.errors && salespersonEmail.touched}"
+                [(ngModel)]="salesperson.email" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+              <div [hidden]="!salespersonEmail.errors?.required" class="invalid-feedback">
+                Email required
+              </div>
+              <div [hidden]="!salespersonEmail.errors?.pattern" class="invalid-feedback">
+                  Email is not valid
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" #salespersonAddress="ngModel" [ngClass]="{'is-invalid': salespersonAddress.errors && salespersonAddress.touched}"
+                [(ngModel)]="salesperson.address" required>
+              <div [hidden]="!salespersonAddress.errors?.required" class="invalid-feedback">
+                Address required
+              </div>
+            </div>
+
+            <div class="form-group ">
+              <label for="jobTitle">Job Title</label>
+              <select class="form-control" name="jobTitle" #salespersonJobTitle="ngModel" [ngClass]="{'is-invalid': salespersonJobTitle.errors && salespersonJobTitle.touched}"
+                [(ngModel)]="salesperson.job_title" required>
+                <option value="">Job Title</option>
+                <option value="Guide">Guide</option>
+                <option value="Salesperson">Salesperson</option>
+                <option value="Cleaner">Cleaner</option>
+              </select>
+              <div [hidden]="!salespersonJobTitle.errors?.required" class="invalid-feedback">
+                Job Title required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="text" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
+                [(ngModel)]="salesperson.salary" required>
+              <div [hidden]="!salespersonSalary.errors?.required" class="invalid-feedback">
+                Salary required
+              </div>
+            </div>
+
+            <!-- 通过登陆自动判断store id，存放在local storage -->
+            <div class="form-group">
+              <label for="store_id">Salary</label>
+              <input type="text" class="form-control" name="store_id" #salespersonStoreId="ngModel" [ngClass]="{'is-invalid': salespersonStoreId.errors && salespersonStoreId.touched}"
+                [(ngModel)]="salesperson.store_id" required>
+              <div [hidden]="!salespersonStoreId.errors?.required" class="invalid-feedback">
+                Store ID required
+              </div>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

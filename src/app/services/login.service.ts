@@ -15,8 +15,8 @@ export class LoginService {
   url: string;
   constructor(private http: HttpClient) {
   }
-  login(account) {
-    let url = 'http://localhost:5000/regionManager/login'
+  login(account): Observable<Salesperson[]> {
+    let url = 'http://localhost:5000/account/login'
     return this.http.post<Salesperson[]>(url, account, httpOptions);
   }
 }

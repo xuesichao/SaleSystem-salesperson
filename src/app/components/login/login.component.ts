@@ -10,8 +10,9 @@ import { Salesperson } from '../../models/Salesperson';
 })
 export class LoginComponent implements OnInit {
   salespersons: Salesperson[];
-  salespersons_id: string;
+  salesperson_id: string;
   job_title: string;
+  store_id: string;
   @ViewChild('loginForm') form: any;
   constructor(
     private router: Router,
@@ -20,11 +21,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.salespersons_id = window.localStorage.getItem('salesperson_id');
-    // if (this.salespersons_id != null) {
-    //   //判断去哪里
-    //   this.router.navigate(['']);
-    // }
+    this.salesperson_id = window.localStorage.getItem('salesperson_id');
+    if (this.salesperson_id != null) {
+      //判断去哪里
+      this.router.navigate(['/welcome']);
+    }
   }
   onSubmit({ value, valid }: { value: Salesperson, valid: boolean }) {
     if (!valid) {
@@ -32,19 +33,21 @@ export class LoginComponent implements OnInit {
         cssClass: 'alert-danger', tmeout: 1500
       });
     } else {
+      console.log(value as Salesperson);
       this.loginService.login(value as Salesperson).subscribe(salespersons => {
-        // this.salespersons_id = salespersons.salespersons_id;
         this.salespersons = salespersons;
         if (this.salespersons.length != 0) {
-          this.salespersons_id = this.salespersons[0].salespersons_id;
+          this.salesperson_id = this.salespersons[0].salesperson_id;
           this.job_title = this.salespersons[0].job_title;
-          window.localStorage.setItem('salespersons_id', this.salespersons_id)
+          this.store_id = this.salespersons[0].store_id;
+          window.localStorage.setItem('salesperson_id', this.salesperson_id)
           window.localStorage.setItem('job_title', this.job_title)
+          window.localStorage.setItem('store_id', this.store_id)
           this.flashMessage.show('Login successfully', {
             cssClass: 'alert-success', timeout: 1500
           });
-          // this.router.navigate(['']);
-          // return location.reload();
+           this.router.navigate(['/welcome']);
+           return location.reload();
         } else {
           this.flashMessage.show('Username or Password is wrong', {
             cssClass: 'alert-danger', timeout: 1500

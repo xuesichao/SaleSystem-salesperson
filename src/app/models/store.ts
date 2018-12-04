@@ -1,8 +1,7 @@
 export interface Store {
   store_id?:string;
   address?:string;
-  //salespersonID
-  manager?:string;
+  manager?:string; //salespersonID
   region_id?:string;
-  salesperson_num?:number;
+  salespersons_num?:number;
 }

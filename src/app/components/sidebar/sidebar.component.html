@@ -2,47 +2,47 @@
   <div class="sidebar-wrapper">
     <div class="logo">
       <a href="#" class="simple-text">
-        Sales System
+        TP&T SALES
       </a>
     </div>
     <ul class="nav">
-      <li class="" (click)="changeColor1()">
+      <li *ngIf="isSalesperson" class="" (click)="changeColor1()">
         <a id="cs1" [routerLink]="['/customer']" class="nav-link">
           <i class="fa fa-users"></i>
           CUSTOMER
         </a>
       </li>
-      <li class="" (click)="changeColor2()">
+      <li *ngIf="isSalesperson" class="" (click)="changeColor2()">
         <a id="cs2" [routerLink]="['/product']" class="nav-link">
           <i class="fa fa-shopping-cart"></i>
           PRODUCT
         </a>
       </li>
-      <li class="" (click)="changeColor3()">
+      <li *ngIf="isSalesperson" class="" (click)="changeColor3()">
         <a id="cs3" [routerLink]="['/transaction']" class="nav-link">
           <i class="fa fa-file-text"></i>
           TRANSACTION
         </a>
       </li>
-      <li class="" (click)="changeColor4()">
+      <li *ngIf="isStoreManager" class="" (click)="changeColor4()">
         <a id="cs4" [routerLink]="['/salesperson']" class="nav-link">
           <i class="fa fa-vcard"></i>
           SALESPERSON
         </a>
       </li>
-      <li class="" (click)="changeColor5()">
+      <li *ngIf="isRegionManager" class="" (click)="changeColor5()">
         <a id="cs5" [routerLink]="['/store']" class="nav-link">
           <i class="fa fa-home"></i>
           STORE
         </a>
       </li>
-      <li class="" (click)="changeColor6()">
+      <li *ngIf="isRegionManager" class="" (click)="changeColor6()">
         <a id="cs6" [routerLink]="['/inventory']" class="nav-link">
           <i class="fa fa-truck"></i>
           INVENTORY
         </a>
       </li>
-      <li class="" (click)="changeColor7()">
+      <li *ngIf="isRegionManager" class="" (click)="changeColor7()">
         <a id="cs7" [routerLink]="['/dashboard']" class="nav-link">
           <i class="fa fa-bar-chart"></i>
           DASHBOARD

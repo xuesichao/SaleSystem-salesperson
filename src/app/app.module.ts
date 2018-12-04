@@ -20,6 +20,11 @@ import { LoginService } from './services/login.service';
 import { FormsModule } from '@angular/Forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { AddInventoryComponent } from './components/add-inventory/add-inventory.component';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { UpdateSalespersonComponent } from './components/update-salesperson/update-salesperson.component';
+import { UpdateStoreComponent } from './components/update-store/update-store.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,11 @@ import { InventoryComponent } from './components/inventory/inventory.component';
     DashboardComponent,
     SidebarComponent,
     InventoryComponent,
+    AddInventoryComponent,
+    AddTransactionComponent,
+    WelcomeComponent,
+    UpdateSalespersonComponent,
+    UpdateStoreComponent,
   ],
   imports: [
     FlashMessagesModule.forRoot(),

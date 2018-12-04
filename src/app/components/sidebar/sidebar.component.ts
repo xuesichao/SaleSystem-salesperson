@@ -6,12 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  isSalesperson: boolean;
+  isStoreManager: boolean;
+  isRegionManager: boolean;
+  job_title: string;
   constructor() { }
-
   ngOnInit() {
+      //  this.isRegionManager = true;
+      // this.isStoreManager = true;
+      // this.isSalesperson = true;
+    this.job_title = window.localStorage.getItem('job_title');
+    console.log(this.job_title);
+    if (this.job_title == 'region_manager') {
+      this.isRegionManager = true;
+      this.isStoreManager = false;
+      this.isSalesperson = false;
+    }
+    else if (this.job_title == 'store_manager') {
+      this.isRegionManager = false;
+      this.isStoreManager = true;
+      this.isSalesperson = false;
+    }
+    else if (this.job_title == null) {
+      this.isRegionManager = false;
+      this.isStoreManager = false;
+      this.isSalesperson = false;
+    } else {
+      this.isRegionManager = false;
+      this.isStoreManager = false;
+      this.isSalesperson = true;
+    }
   }
-  
+
   changeColor1() {
     document.getElementById('cs1').style.color = '#EB5E28';
     document.getElementById('cs2').style.color = '#66615B';
