@@ -22,7 +22,7 @@
         <div class="card-header">
           Update Salesperson
         </div>
-        <div class="card-body ">
+        <div class="card-body " *ngFor="let salesperson of salespersons">
           <form #SalespersonForm="ngForm" (ngSubmit)="onSubmit(SalespersonForm)">
             <div class="form-group">
               <label for="name">Name</label>

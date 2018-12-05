@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     this.salespersons_id = window.localStorage.getItem('salesperson_id');
     if (this.salespersons_id != null) {
       this.isLoggedIn = true;
-      this.storeManagerService.getSalesperson().subscribe(salespersons => {
+      this.storeManagerService.getSalesperson(this.salespersons_id).subscribe(salespersons => {
         this.isLoggedIn = true;
         this.loggedInUser = salespersons[0]['name'];
         // this.router.navigate(['/doctor']);

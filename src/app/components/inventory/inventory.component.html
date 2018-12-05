@@ -39,11 +39,11 @@
                 <td>{{inventory.order_date}}</td>
                 <td>{{inventory.product_id}}</td>
                 <td>{{inventory.quantity}}</td>
-                <td class="">
-                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                <td>
+                  <button (click)="onDeleteClick(inventory.order_id)" class="btn btn-danger">Delete</button>
                 </td>
-                <td class="">
-                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                <td>
+                  <button (click)="onUpdateClick(inventory.order_id)" class="btn btn-warning">Update</button>
                 </td>
               </tr>
             </tbody>

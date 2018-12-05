@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class StoreComponent implements OnInit {
   stores: Store[];
-
   constructor(
     private regionManagerService: RegionManagerService,
     private router: Router,
@@ -29,7 +28,7 @@ export class StoreComponent implements OnInit {
       this.flashMessage.show('Post removed', {
         cssClass: 'alert-success', timeout: 1500
       });
-      // location.reload();
+      location.reload();
     }
   }
   onUpdateClick(id) {

@@ -1,15 +1,15 @@
 export interface Customer {
   //Customer
-  address?:string;
   customer_id?:string;
+  address?:string;
   kind?:string;
   name?:string;
   //Home
+  marry_status?:string;
   age?:string;
   gender?:string;
   income?:string;
   //Business
-  marry_status?:string;
   category?:string;
   company_income?:string;
 }

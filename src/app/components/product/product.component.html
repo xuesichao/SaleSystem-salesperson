@@ -29,8 +29,8 @@
               <th style="width:15%">Product ID</th>
               <th style="width:15%">Name</th>
               <th style="width:15%">Kind</th>
-              <th style="width:15%">Price</th>
               <th style="width:15%">Cost</th>
+              <th style="width:15%">Price</th>
               <th style="width:15%">Amount</th>
               <th style="width:10%"></th>
               <th style="width:10%"></th>
@@ -40,15 +40,15 @@
               <tr *ngFor="let product of products">
                 <td>{{product.product_id}}</td>
                 <td>{{product.product_name}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.cost}}</td>
                 <td>{{product.kind}}</td>
+                <td>{{product.cost}}</td>
                 <td>{{product.price}}</td>
-                <td class="">
-                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                <td>{{product.amount}}</td>
+                <td>
+                  <button (click)="onDeleteClick(product.product_id)" class="btn btn-danger">Delete</button>
                 </td>
-                <td class="">
-                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                <td>
+                  <button (click)="onUpdateClick(product.product_id)" class="btn btn-warning">Update</button>
                 </td>
               </tr>
             </tbody>

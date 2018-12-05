@@ -6,10 +6,10 @@
           <a class="nav-link " [routerLink]="['/customer']">All Customers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Add New Customer</a>
+          <a class="nav-link" [routerLink]="['/customer/add']">Add New Customer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Update Customer</a>
+          <a class="nav-link active">Update Customer</a>
         </li>
       </ul>
     </div>
@@ -20,9 +20,9 @@
     <div class="col-md-6 mx-auto">
       <div class="card">
         <div class="card-header">
-          Add Customer
+          Update Customer
         </div>
-        <div class="card-body ">
+        <div class="card-body " *ngFor="let customer of customers">
           <form #CustomerForm="ngForm" (ngSubmit)="onSubmit(CustomerForm)">
             <div class="form-group">
               <label for="name">Name</label>
@@ -44,12 +44,9 @@
 
             <div class="form-group ">
               <label for="kind">Customer Kind</label>
-              <select class="form-control" name="kind" #customerKind="ngModel" [ngClass]="{'is-invalid': customerKind.errors && customerKind.touched}"
-                [(ngModel)]="customer.kind" required>
-                <option value="">Customer Kind</option>
-                <option value="home">Home</option>
-                <option value="business">Business</option>
-              </select>
+              <!-- home -->
+              <input type="text" disabled="disabled" class="form-control" name="kind" #customerKind="ngModel" [ngClass]="{'is-invalid': customerKind.errors && customerKind.touched}"
+              [(ngModel)]="customer.kind" required>
               <div [hidden]="!customerKind.errors?.required" class="invalid-feedback">
                 Customer Kind required
               </div>
@@ -125,7 +122,7 @@
                 Company Income required
               </div>
             </div>
-            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+            <input type="submit" value="Update" class="btn btn-primary btn-block">
           </form>
         </div>
       </div>

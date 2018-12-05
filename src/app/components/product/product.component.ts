@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { SalespersonService } from '../../services/salesperson.service';
+import { RegionManagerService } from '../../services/region-manager.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -8,11 +12,28 @@ import { SalespersonService } from '../../services/salesperson.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[];
-  constructor(private salespersonService: SalespersonService) { }
+  constructor(
+    private regionManagerService: RegionManagerService,
+    private salespersonService: SalespersonService,
+    private router: Router,
+    private flashMessage: FlashMessagesService
+  ) { }
   ngOnInit() {
     this.salespersonService.getProducts().subscribe(products => {
       this.products = products
     })
   }
-
+  onDeleteClick(id) {
+    if (confirm('Are you sure?')) {
+      this.regionManagerService.deleteProduct(id).subscribe();
+      this.flashMessage.show('Product removed', {
+        cssClass: 'alert-success', timeout: 1500
+      });
+      location.reload();
+    }
+  }
+  onUpdateClick(id) {
+    window.sessionStorage.setItem('product_id', id);
+    this.router.navigate(['/product/update']);
+  }
 }

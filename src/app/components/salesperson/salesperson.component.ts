@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Salesperson } from 'src/app/models/Salesperson';
 import { StoreManagerService } from '../../services/store-manager.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +15,7 @@ export class SalespersonComponent implements OnInit {
   constructor(
     private storeManagerService: StoreManagerService,
     private router: Router,
+    private flashMessage: FlashMessagesService
     ) { }
 
   ngOnInit() {
@@ -21,5 +23,17 @@ export class SalespersonComponent implements OnInit {
       this.salespersons = salespersons
     })
   }
-  
+  onDeleteClick(id) {
+    if (confirm('Are you sure?')) {
+      this.storeManagerService.deleteSalesperson(id).subscribe();
+      this.flashMessage.show('Salesperson removed', {
+        cssClass: 'alert-success', timeout: 1500
+      });
+      location.reload();
+    }
+  }
+  onUpdateClick(id) {
+    window.sessionStorage.setItem('salesperson_id', id);
+    this.router.navigate(['/salesperson/update']);
+  }
 }

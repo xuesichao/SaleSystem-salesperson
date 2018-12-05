@@ -21,7 +21,7 @@ export class UpdateStoreComponent implements OnInit {
       this.stores = stores
     })
   }
-  onSubmit({ value, valid }: { value: Store, valid: boolean }) {
+  onSubmit(valid:boolean ) {
     if (!valid) {
       this.flashMessage.show('Please fill out the form correctly', {
         cssClass: 'alert-danger', timeout: 1500

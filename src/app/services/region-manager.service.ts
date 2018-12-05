@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Store } from 'src/app/models/Store';
+import { Product } from 'src/app/models/Product';
 import { Inventory } from 'src/app/models/Inventory';
 import { Observable } from 'rxjs';
 
@@ -20,24 +21,52 @@ export class RegionManagerService {
     let url = 'http://localhost:5000/regionManager/stores';
     return this.http.post<Store[]>(url, store, httpOptions);
   }
-  getStores(){
+  getStores() {
     let url = 'http://localhost:5000/regionManager/stores';
     return this.http.get<Store[]>(url);
   }
-  getStore(id){
-    let url = 'http://localhost:5000/regionManager/stores/'+id;
+  getStore(id) {
+    let url = 'http://localhost:5000/regionManager/stores/' + id;
     return this.http.get<Store[]>(url);
   }
-  deleteStore(id){
-    let url ='http://localhost:5000/regionManager/stores/'+ id;
+  updateStore(id, store) {
+    let url = 'http://localhost:5000/regionManager/stores/' + id;
+    return this.http.patch<Store[]>(url, store, httpOptions);
+  }
+  deleteStore(id) {
+    let url = 'http://localhost:5000/regionManager/stores/' + id;
     return this.http.delete<Store[]>(url, httpOptions);
   }
-  getInventories(){
+  addInventory(inventory): Observable<Inventory[]> {
+    let url = 'http://localhost:5000/regionManager/inventories';
+    return this.http.post<Inventory[]>(url, inventory, httpOptions);
+  }
+  getInventories() {
     let url = 'http://localhost:5000/regionManager/inventories';
     return this.http.get<Inventory[]>(url);
   }
-  updateStore(id,store){
-    let url ='http://localhost:5000/regionManager/stores/'+ id;
-    return this.http.patch<Store[]>(url,store, httpOptions);
+  getInventory(id) {
+    let url = 'http://localhost:5000/regionManager/inventories' + id;
+    return this.http.get<Inventory[]>(url);
+  }
+  deleteInventory(id) {
+    let url = 'http://localhost:5000/regionManager/inventories/' + id;
+    return this.http.delete<Inventory[]>(url, httpOptions);
+  }
+  updateInventory(id, inventory) {
+    let url = 'http://localhost:5000/regionManager/inventories/' + id;
+    return this.http.patch<Store[]>(url, inventory, httpOptions);
+  }
+  addProduct(product): Observable<Product[]> {
+    let url = 'http://localhost:5000/regionManager/products';
+    return this.http.post<Product[]>(url, product, httpOptions);
+  }
+  updateProduct(id, product) {
+    let url = 'http://localhost:5000/regionManager/products/' + id;
+    return this.http.patch<Product[]>(url, product, httpOptions);
+  }
+  deleteProduct(id) {
+    let url = 'http://localhost:5000/regionManager/products/' + id;
+    return this.http.delete<Product[]>(url, httpOptions);
   }
 }

@@ -27,16 +27,16 @@ export class AddSalespersonComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit({ value, valid }: { value: Salesperson, valid: boolean }) {
-    if (!valid) {
-      this.flashMessage.show('Please fill out the form correctly', {
-        cssClass: 'alert-danger', timeout: 1500
-      });
-    } else {
+  onSubmit({ value }: { value: Salesperson}) {
+    // if (!valid) {
+    //   this.flashMessage.show('Please fill out the form correctly', {
+    //     cssClass: 'alert-danger', timeout: 1500
+    //   });
+    // } else {
       this.storeManagerService.addSalesperson(value as Salesperson).subscribe();
       this.flashMessage.show('New salesperson added', {
         cssClass: 'alert-success', timeout: 1500
       });
-    }
+    // }
   }
 }

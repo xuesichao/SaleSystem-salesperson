@@ -14,7 +14,6 @@ const httpOptions = {
 export class StoreManagerService {
   url: string;
   salespersons: Observable<Salesperson[]>;
-  salesperson_id:string;
   constructor(
     private http: HttpClient
     ) { }
@@ -27,9 +26,16 @@ export class StoreManagerService {
     let url = 'http://localhost:5000/storeManager/salespersons';
     return this.http.get<Salesperson[]>(url);
   }
-  getSalesperson():Observable<Salesperson[]> {
-    this.salesperson_id=window.localStorage.getItem('salesperson_id');
-    let url = 'http://localhost:5000/storeManager/salespersons/'+ this.salesperson_id;
+  getSalesperson(id):Observable<Salesperson[]> {
+    let url = 'http://localhost:5000/storeManager/salespersons/'+ id;
     return this.http.get<Salesperson[]>(url);
+  }
+  updateSalesperson(id, salesperson) {
+    let url = 'http://localhost:5000/storeManager/salespersons/' + id;
+    return this.http.patch<Salesperson[]>(url, salesperson, httpOptions);
+  }
+  deleteSalesperson(id) {
+    let url = 'http://localhost:5000/storeManager/salesperson/' + id;
+    return this.http.delete<Salesperson[]>(url, httpOptions);
   }
 }

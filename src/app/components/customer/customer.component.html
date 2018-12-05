@@ -9,7 +9,7 @@
           <a class="nav-link " [routerLink]="['add']">Add New Customer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" [routerLink]="['update']">Update Customer</a>
+          <a class="nav-link disabled">Update Customer</a>
         </li>
       </ul>
     </div>
@@ -37,14 +37,14 @@
             <tbody>
               <tr *ngFor="let customer of customers">
                 <td>{{customer.customer_id}}</td>
-                <td>{{customer.name}} Rice</td>
+                <td>{{customer.name}}</td>
                 <td>{{customer.kind}}</td>
                 <td>{{customer.address}}</td>
-                <td class="">
-                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                <td>
+                  <button (click)="onDeleteClick(customer.customer_id)" class="btn btn-danger">Delete</button>
                 </td>
-                <td class="">
-                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                <td>
+                  <button (click)="onUpdateClick(customer.customer_id,customer.kind)" class="btn btn-warning">Update</button>
                 </td>
               </tr>
             </tbody>

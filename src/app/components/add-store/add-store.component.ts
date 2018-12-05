@@ -21,8 +21,7 @@ export class AddStoreComponent implements OnInit {
     private regionManagerService: RegionManagerService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onSubmit({ value, valid }: { value: Store, valid: boolean }) {
     if (!valid) {
       this.flashMessage.show('Please fill out the form correctly', {

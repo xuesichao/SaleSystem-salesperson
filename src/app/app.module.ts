@@ -25,6 +25,10 @@ import { AddTransactionComponent } from './components/add-transaction/add-transa
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { UpdateSalespersonComponent } from './components/update-salesperson/update-salesperson.component';
 import { UpdateStoreComponent } from './components/update-store/update-store.component';
+import { UpdateTransactionComponent } from './components/update-transaction/update-transaction.component';
+import { UpdateInventoryComponent } from './components/update-inventory/update-inventory.component';
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { UpdateStoreComponent } from './components/update-store/update-store.com
     WelcomeComponent,
     UpdateSalespersonComponent,
     UpdateStoreComponent,
+    UpdateTransactionComponent,
+    UpdateInventoryComponent,
+    UpdateCustomerComponent,
+    UpdateProductComponent,
   ],
   imports: [
     FlashMessagesModule.forRoot(),

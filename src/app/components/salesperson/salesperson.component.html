@@ -45,13 +45,10 @@
                 <td>{{salesperson.salary}}</td>
                 <td>{{salesperson.email}}</td>
                 <td>{{salesperson.address}}</td>
-                <td class="">
-                  <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                <td>
+                  <button (click)="onDeleteClick(salesperson.salesperson_id)" class="btn btn-danger">Delete</button>
                 </td>
-                <!-- <td class="">
-                  <button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
-                </td> -->
-                <td><button (click)="onUpdateClick(store.store_id)" class="btn btn-warning">Update</button>
+                <td><button (click)="onUpdateClick(salesperson.salesperson_id)" class="btn btn-warning">Update</button>
                 </td>
               </tr>
             </tbody>
