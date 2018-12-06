@@ -27,24 +27,29 @@
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" name="name" #customerName="ngModel" [ngClass]="{'is-invalid': customerName.errors && customerName.touched}"
-                [(ngModel)]="customer.name" required>
+                [(ngModel)]="customer.name" minlength="3" maxlength="12" required>
               <div [hidden]="!customerName.errors?.required" class="invalid-feedback">
                 Name required
+              </div>
+              <div [hidden]="!customerName.errors?.minlength && !customerName.errors?.maxlength" class="invalid-feedback">
+                Minimum 3 characters, maximum 12 characters
               </div>
             </div>
 
             <div class="form-group">
               <label for="address">Address</label>
               <input type="text" class="form-control" name="address" #customerAddress="ngModel" [ngClass]="{'is-invalid': customerAddress.errors && customerAddress.touched}"
-                [(ngModel)]="customer.address" required>
+                [(ngModel)]="customer.address" minlength="5" maxlength="35" required>
               <div [hidden]="!customerAddress.errors?.required" class="invalid-feedback">
                 Address required
+              </div>
+              <div [hidden]="!customerAddress.errors?.minlength && !customerAddress.errors?.maxlength" class="invalid-feedback">
+                Minimum 5 characters, maximum 30 characters
               </div>
             </div>
 
             <div class="form-group ">
               <label for="kind">Customer Kind</label>
-              <!-- home -->
               <input type="text" disabled="disabled" class="form-control" name="kind" #customerKind="ngModel" [ngClass]="{'is-invalid': customerKind.errors && customerKind.touched}"
               [(ngModel)]="customer.kind" required>
               <div [hidden]="!customerKind.errors?.required" class="invalid-feedback">
@@ -56,7 +61,7 @@
             <div class="form-group" [hidden]="customer.kind!='home'">
               <label for="age">Age</label>
               <input type="number" class="form-control" name="age" #customerAge="ngModel" [ngClass]="{'is-invalid': customerAge.errors && customerAge.touched}"
-                [(ngModel)]="customer.age" required>
+                [(ngModel)]="customer.age"  min="0" max="150" required>
               <div [hidden]="!customerAge.errors?.required" class="invalid-feedback">
                 Age required
               </div>
@@ -91,7 +96,7 @@
             <div class="form-group" [hidden]="customer.kind!='home'">
               <label for="income">Income</label>
               <input type="number" class="form-control" name="income" #customerIncome="ngModel" [ngClass]="{'is-invalid': customerIncome.errors && customerIncome.touched}"
-                [(ngModel)]="customer.income" required>
+                [(ngModel)]="customer.income"min="0" max="100000000000" required>
               <div [hidden]="!customerIncome.errors?.required" class="invalid-feedback">
                 Income required
               </div>
@@ -117,7 +122,7 @@
             <div class="form-group" [hidden]="customer.kind!='business'" aria-required="false">
               <label for="company_income">Company Income</label>
               <input type="number" class="form-control" name="company_income" #customerCompanyIncome="ngModel" [ngClass]="{'is-invalid': customerCompanyIncome.errors && customerCompanyIncome.touched}"
-                [(ngModel)]="customer.company_income" required>
+                [(ngModel)]="customer.company_income" min="0" max="100000000000" required>
               <div [hidden]="!customerCompanyIncome.errors?.required" class="invalid-feedback">
                 Company Income required
               </div>

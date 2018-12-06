@@ -55,13 +55,12 @@
             </div>
 
             <div class="form-group ">
-              <label for="jobTitle">Job Title</label>
-              <select class="form-control" name="jobTitle" #salespersonJobTitle="ngModel" [ngClass]="{'is-invalid': salespersonJobTitle.errors && salespersonJobTitle.touched}"
+              <label for="job_title">Job Title</label>
+              <select class="form-control" name="job_title" #salespersonJobTitle="ngModel" [ngClass]="{'is-invalid': salespersonJobTitle.errors && salespersonJobTitle.touched}"
                 [(ngModel)]="salesperson.job_title" required>
                 <option value="">Job Title</option>
-                <option value="Guide">Guide</option>
-                <option value="Salesperson">Salesperson</option>
-                <option value="Cleaner">Cleaner</option>
+                <option *ngIf="isStoreManager || isRegionManager" value="salesperson">Salesperson</option>
+                <option *ngIf="isRegionManager" value="store_manager">Store Manager</option>
               </select>
               <div [hidden]="!salespersonJobTitle.errors?.required" class="invalid-feedback">
                 Job Title required
@@ -70,8 +69,8 @@
 
             <div class="form-group">
               <label for="salary">Salary</label>
-              <input type="text" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
-                [(ngModel)]="salesperson.salary" required>
+              <input type="number" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
+                [(ngModel)]="salesperson.salary" min="0" required>
               <div [hidden]="!salespersonSalary.errors?.required" class="invalid-feedback">
                 Salary required
               </div>
@@ -89,7 +88,7 @@
             <!-- 通过登陆自动判断store id，存放在local storage -->
             <div class="form-group">
               <label for="store_id">Store ID</label>
-              <input type="text" class="form-control" name="store_id" #salespersonStoreId="ngModel" [ngClass]="{'is-invalid': salespersonStoreId.errors && salespersonStoreId.touched}"
+              <input type="text" disabled="disabled" class="form-control" name="store_id" #salespersonStoreId="ngModel" [ngClass]="{'is-invalid': salespersonStoreId.errors && salespersonStoreId.touched}"
                 [(ngModel)]="salesperson.store_id" required>
               <div [hidden]="!salespersonStoreId.errors?.required" class="invalid-feedback">
                 Store ID required

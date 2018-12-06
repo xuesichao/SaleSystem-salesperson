@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.salesperson_id = window.localStorage.getItem('salesperson_id');
     if (this.salesperson_id != null) {
-      //判断去哪里
       this.router.navigate(['/welcome']);
     }
   }
@@ -43,11 +42,20 @@ export class LoginComponent implements OnInit {
           window.localStorage.setItem('salesperson_id', this.salesperson_id)
           window.localStorage.setItem('job_title', this.job_title)
           window.localStorage.setItem('store_id', this.store_id)
+          // if (this.salespersons[0]['job_title'] == 'salesperson') { 
+
+          // }
+          // else if (this.salespersons[0]['job_title'] == 'salesperson') {
+
+          //  }
+          // else if (this.salespersons[0]['job_title'] == 'salesperson') { 
+
+          // }
           this.flashMessage.show('Login successfully', {
             cssClass: 'alert-success', timeout: 1500
           });
-           this.router.navigate(['/welcome']);
-           return location.reload();
+          this.router.navigate(['/welcome']);
+          return location.reload();
         } else {
           this.flashMessage.show('Username or Password is wrong', {
             cssClass: 'alert-danger', timeout: 1500

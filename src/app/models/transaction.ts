@@ -1,7 +1,7 @@
 export interface Transaction {
-  transaction_id?:string;
+  order_id?:string;
   customer_id?:string;
-  order_date?:Date;
+  order_date?:string;
   product_id?:string;
   quantity?:number;
   salesperson_id?:string;

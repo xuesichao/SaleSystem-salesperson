@@ -10,8 +10,17 @@
           <li *ngIf="!isLoggedIn" class="nav-item">
             <a routerLink="/" class="nav-link">Login</a>
           </li>
+          <li *ngIf="isLoggedIn && !isRegionManager" class="nav-item">
+            <a class="nav-link">STORE: {{store_id}}</a>
+          </li>
           <li *ngIf="isLoggedIn" class="nav-item">
-            <a class="nav-link">{{loggedInUser}}</a>
+            <a class="nav-link">NAME: {{name}}</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link">JOB: {{job_title}}</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link">ID: {{salesperson_id}}</a>
           </li>
           <li *ngIf="isLoggedIn" class="nav-item">
             <a href="" (click)="onLogoutClick()" class="nav-link">Logout</a>

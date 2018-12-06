@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./salesperson.component.css']
 })
 export class SalespersonComponent implements OnInit {
-  salespersons:Salesperson[];
-  store_id:String;
+  salespersons: Salesperson[];
+  store_id: string;
   constructor(
     private storeManagerService: StoreManagerService,
     private router: Router,
     private flashMessage: FlashMessagesService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.storeManagerService.getSalespersons().subscribe(salespersons => {
@@ -25,11 +25,17 @@ export class SalespersonComponent implements OnInit {
   }
   onDeleteClick(id) {
     if (confirm('Are you sure?')) {
-      this.storeManagerService.deleteSalesperson(id).subscribe();
+      this.storeManagerService.getSalespersonStoreId(id).subscribe(
+        salespersons => {
+          this.store_id = salespersons[0]['store_id'];
+          this.storeManagerService.decreaseSalesperson_num(this.store_id).subscribe();
+          this.storeManagerService.deleteSalesperson(id).subscribe();
+        }
+      );
       this.flashMessage.show('Salesperson removed', {
         cssClass: 'alert-success', timeout: 1500
       });
-      location.reload();
+      // location.reload();
     }
   }
   onUpdateClick(id) {

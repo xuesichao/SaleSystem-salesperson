@@ -31,9 +31,4 @@ export class TransactionComponent implements OnInit {
       location.reload();
     }
   }
-  onUpdateClick(id) {
-    window.sessionStorage.setItem('transaction_id', id);
-    this.router.navigate(['/transaction/update']);
-  }
-
 }

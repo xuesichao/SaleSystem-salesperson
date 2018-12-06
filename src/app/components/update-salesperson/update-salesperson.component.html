@@ -59,9 +59,8 @@
               <select class="form-control" name="jobTitle" #salespersonJobTitle="ngModel" [ngClass]="{'is-invalid': salespersonJobTitle.errors && salespersonJobTitle.touched}"
                 [(ngModel)]="salesperson.job_title" required>
                 <option value="">Job Title</option>
-                <option value="Guide">Guide</option>
-                <option value="Salesperson">Salesperson</option>
-                <option value="Cleaner">Cleaner</option>
+                <option *ngIf="isStoreManager || isRegionManager" value="salesperson">Salesperson</option>
+                <option *ngIf="isRegionManager" value="store_manager">Store Manager</option>
               </select>
               <div [hidden]="!salespersonJobTitle.errors?.required" class="invalid-feedback">
                 Job Title required
@@ -70,8 +69,8 @@
 
             <div class="form-group">
               <label for="salary">Salary</label>
-              <input type="text" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
-                [(ngModel)]="salesperson.salary" required>
+              <input type="number" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
+                [(ngModel)]="salesperson.salary" min="0" required>
               <div [hidden]="!salespersonSalary.errors?.required" class="invalid-feedback">
                 Salary required
               </div>

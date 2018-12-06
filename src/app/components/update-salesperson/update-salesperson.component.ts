@@ -11,14 +11,27 @@ import { StoreManagerService } from '../../services/store-manager.service';
 export class UpdateSalespersonComponent implements OnInit {
   salesperson_id: string;
   salespersons: Salesperson[];
+  isStoreManager: boolean;
+  isRegionManager: boolean;
+  job_title: string;
   constructor(
     private flashMessage: FlashMessagesService, private storeManagerService: StoreManagerService
   ) { }
 
   ngOnInit() {
+
     this.salesperson_id = window.sessionStorage.getItem('salesperson_id');
-    this.storeManagerService.getSalesperson(this.salesperson_id).subscribe(salespersons => {
+    this.job_title = window.localStorage.getItem('job_title');
+    if (this.job_title == "region_manager") {
+      this.isStoreManager = false;
+      this.isRegionManager = true;
+    } else if (this.job_title == "store_manager") {
+      this.isStoreManager = true;
+      this.isRegionManager = false;
+    }
+    this.storeManagerService.getSalespersonWithPassword(this.salesperson_id).subscribe(salespersons => {
       this.salespersons = salespersons
+      console.log(this.salespersons);
     })
   }
   onSubmit({ value, valid }: { value: Salesperson, valid: boolean }) {
@@ -27,7 +40,6 @@ export class UpdateSalespersonComponent implements OnInit {
         cssClass: 'alert-danger', timeout: 1500
       });
     } else {
-      console.log(this.salespersons[0]);
       this.storeManagerService.updateSalesperson(this.salesperson_id, this.salespersons[0]).subscribe();
       this.flashMessage.show('Salesperson updated', {
         cssClass: 'alert-success', timeout: 1500

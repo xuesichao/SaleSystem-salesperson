@@ -16,7 +16,7 @@ export class StoreManagerService {
   salespersons: Observable<Salesperson[]>;
   constructor(
     private http: HttpClient
-    ) { }
+  ) { }
 
   addSalesperson(salesperson): Observable<Salesperson[]> {
     let url = 'http://localhost:5000/storeManager/salespersons';
@@ -26,8 +26,8 @@ export class StoreManagerService {
     let url = 'http://localhost:5000/storeManager/salespersons';
     return this.http.get<Salesperson[]>(url);
   }
-  getSalesperson(id):Observable<Salesperson[]> {
-    let url = 'http://localhost:5000/storeManager/salespersons/'+ id;
+  getSalesperson(id): Observable<Salesperson[]> {
+    let url = 'http://localhost:5000/storeManager/salespersons/' + id;
     return this.http.get<Salesperson[]>(url);
   }
   updateSalesperson(id, salesperson) {
@@ -35,7 +35,23 @@ export class StoreManagerService {
     return this.http.patch<Salesperson[]>(url, salesperson, httpOptions);
   }
   deleteSalesperson(id) {
-    let url = 'http://localhost:5000/storeManager/salesperson/' + id;
+    let url = 'http://localhost:5000/storeManager/salespersons/' + id;
     return this.http.delete<Salesperson[]>(url, httpOptions);
+  }
+  getSalespersonStoreId(id) {
+    let url = 'http://localhost:5000/storeManager/salespersons/store_id/' + id;
+    return this.http.get<Salesperson[]>(url);
+  }
+  decreaseSalesperson_num(id) {
+    let url = 'http://localhost:5000/storeManager/decrease_salespersons_num/' + id;
+    return this.http.get<Salesperson[]>(url);
+  }
+  increaseSalesperson_num(id) {
+    let url = 'http://localhost:5000/storeManager/increase_salespersons_num/' + id;
+    return this.http.get<Salesperson[]>(url);
+  }
+  getSalespersonWithPassword(id){
+    let url = 'http://localhost:5000/storeManager/salespersons/password/' + id;
+    return this.http.get<Salesperson[]>(url);
   }
 }

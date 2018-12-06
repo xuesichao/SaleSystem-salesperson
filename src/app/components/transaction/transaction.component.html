@@ -8,9 +8,6 @@
         <li class="nav-item">
           <a class="nav-link " [routerLink]="['add']">Add New Transaction</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" [routerLink]="['update']">Update Transaction</a>
-          </li>
       </ul>
     </div>
     <br>
@@ -26,26 +23,27 @@
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
             <thead>
-              <th>Order ID</th>
-              <th>Order Date</th>
-              <th>Product ID</th>
-              <th>Salesperson ID</th>
-              <th>Customer ID</th>
-              <th>Quantity</th>
-              <th>Store ID</th>
-              <th></th>
+              <th style="width:12.85%">Order ID</th>
+              <th style="width:22.85%">Order Date</th>
+              <th style="width:12.85%">Product ID</th>
+              <th style="width:12.85%">Salesperson ID</th>
+              <th style="width:12.85%">Customer ID</th>
+              <th style="width:12.85%">Quantity</th>
+              <th style="width:12.85%">Store ID</th>
+              <th style="width:20%"></th>
             </thead>
             <tbody>
-              <tr *ngFor="let transaction of Transactions">
-                <td>{{transaction.transaction_id}}</td>
-                <td>{{transaction.customer_id}}</td>
+              <tr *ngFor="let transaction of transactions">
+                <td>{{transaction.order_id}}</td>
                 <td>{{transaction.order_date}}</td>
                 <td>{{transaction.product_id}}</td>
-                <td>{{transaction.quantity}}</td>
                 <td>{{transaction.salesperson_id}}</td>
+                <td>{{transaction.customer_id}}</td>
+                <td>{{transaction.quantity}}</td>
                 <td>{{transaction.store_id}}</td>
+                
                 <td class="">
-                    <button (click)="onDeleteClick(store.store_id)" class="btn btn-danger">Delete</button>
+                    <button (click)="onDeleteClick(transaction.order_id)" class="btn btn-danger">Delete</button>
                   </td>
               </tr>
             </tbody>

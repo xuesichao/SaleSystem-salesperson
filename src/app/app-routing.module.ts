@@ -17,10 +17,8 @@ import { AddStoreComponent } from './components/add-store/add-store.component';
 import { AddInventoryComponent } from './components/add-inventory/add-inventory.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import{ UpdateSalespersonComponent} from './components/update-salesperson/update-salesperson.component';
-import{ UpdateStoreComponent} from './components/update-store/update-store.component';
-import { UpdateTransactionComponent } from './components/update-transaction/update-transaction.component';
-import { UpdateInventoryComponent } from './components/update-inventory/update-inventory.component';
+import { UpdateSalespersonComponent } from './components/update-salesperson/update-salesperson.component';
+import { UpdateStoreComponent } from './components/update-store/update-store.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 
@@ -46,11 +44,10 @@ const routes: Routes = [
 
   { path: 'transaction', component: TransactionComponent },
   { path: 'transaction/add', component: AddTransactionComponent },
-  { path: 'transaction/update', component: UpdateTransactionComponent },
 
   { path: 'inventory', component: InventoryComponent },
   { path: 'inventory/add', component: AddInventoryComponent },
-  { path: 'inventory/update', component: UpdateInventoryComponent },
+  
   { path: 'dashboard', component: DashboardComponent },
 ];
 

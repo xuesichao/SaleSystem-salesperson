@@ -27,9 +27,12 @@
               <div class="form-group">
                 <label for="product_name">Name</label>
                 <input type="text" class="form-control" name="product_name" #productName="ngModel" [ngClass]="{'is-invalid': productName.errors && productName.touched}"
-                  [(ngModel)]="product.product_name" required>
+                  [(ngModel)]="product.product_name" minlength="3" maxlength="12" required>
                 <div [hidden]="!productName.errors?.required" class="invalid-feedback">
                   Name required
+                </div>
+                <div [hidden]="!productName.errors?.minlength && !productName.errors?.maxlength" class="invalid-feedback">
+                  Minimum 3 characters, maximum 12 characters
                 </div>
               </div>
 
@@ -52,7 +55,7 @@
               <div class="form-group">
                 <label for="cost">Cost</label>
                 <input type="number" class="form-control" name="cost" #productCost="ngModel" [ngClass]="{'is-invalid': productCost.errors && productCost.touched}"
-                  [(ngModel)]="product.cost" required>
+                  [(ngModel)]="product.cost" min="0" max="100000" required>
                 <div [hidden]="!productCost.errors?.required" class="invalid-feedback">
                   Coust required
                 </div>
@@ -61,7 +64,7 @@
               <div class="form-group">
                 <label for="price">Price</label>
                 <input type="number" class="form-control" name="price" #productPrice="ngModel" [ngClass]="{'is-invalid': productPrice.errors && productPrice.touched}"
-                  [(ngModel)]="product.price" required>
+                  [(ngModel)]="product.price" min="1" max="100000" required>
                 <div [hidden]="!productPrice.errors?.required" class="invalid-feedback">
                   Price required
                 </div>
@@ -70,7 +73,7 @@
               <div class="form-group">
                 <label for="amount">Amount</label>
                 <input type="number" class="form-control" name="amount" #productAmount="ngModel" [ngClass]="{'is-invalid': productAmount.errors && productAmount.touched}"
-                  [(ngModel)]="product.amount" required>
+                  [(ngModel)]="product.amount" min="0" max="100000" required>
                 <div [hidden]="!productAmount.errors?.required" class="invalid-feedback">
                   Amount required
                 </div>

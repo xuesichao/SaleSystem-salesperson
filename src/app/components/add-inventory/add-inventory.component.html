@@ -3,14 +3,11 @@
     <div class="col-md-12">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/inventory']">All Inventories</a>
+          <a class="nav-link " [routerLink]="['/inventory']">All Inventorys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" [routerLink]="['add']">Add New Inventory</a>
+          <a class="nav-link active">Add New Inventory</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" [routerLink]="['update']">Update Inventory</a>
-          </li>
       </ul>
     </div>
     <br>
@@ -23,64 +20,31 @@
           Add Inventory
         </div>
         <div class="card-body ">
-          <form #SalespersonForm="ngForm" (ngSubmit)="onSubmit(SalespersonForm)">
+          <form #InventoryForm="ngForm" (ngSubmit)="onSubmit(InventoryForm)">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" #salespersonName="ngModel" [ngClass]="{'is-invalid': salespersonName.errors && salespersonName.touched}"
-                [(ngModel)]="salesperson.name" required>
-              <div [hidden]="!salespersonName.errors?.required" class="invalid-feedback">
-                Name required
+              <label for="product_id">Product ID</label>
+              <input type="number" class="form-control" name="product_id" #inventoryProductId="ngModel" [ngClass]="{'is-invalid': inventoryProductId.errors && inventoryProductId.touched}"
+                [(ngModel)]="inventory.product_id" min="10000" max="20000" required>
+              <div [hidden]="!inventoryProductId.errors?.required" class="invalid-feedback">
+                Product ID
               </div>
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email" #salespersonEmail="ngModel" [ngClass]="{'is-invalid': salespersonEmail.errors && salespersonEmail.touched}"
-                [(ngModel)]="salesperson.email" required>
-              <div [hidden]="!salespersonEmail.errors?.required" class="invalid-feedback">
-                Email required
+              <label for="quantity">Quantity</label>
+              <input type="number" class="form-control" name="quantity" #inventoryQuantity="ngModel" [ngClass]="{'is-invalid': inventoryQuantity.errors && inventoryQuantity.touched}"
+                [(ngModel)]="inventory.quantity" min="1" max="100000" required>
+              <div [hidden]="!inventoryQuantity.errors?.required" class="invalid-feedback">
+                Amount required
               </div>
             </div>
 
             <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" #salespersonAddress="ngModel" [ngClass]="{'is-invalid': salespersonAddress.errors && salespersonAddress.touched}"
-                [(ngModel)]="salesperson.address" required>
-              <div [hidden]="!salespersonAddress.errors?.required" class="invalid-feedback">
-                Address required
-              </div>
-            </div>
-
-            <div class="form-group ">
-              <label for="jobTitle">Job Title</label>
-              <select class="form-control" name="jobTitle" #salespersonJobTitle="ngModel" [ngClass]="{'is-invalid': salespersonJobTitle.errors && salespersonJobTitle.touched}"
-                [(ngModel)]="salesperson.job_title" required>
-                <option value="">Job Title</option>
-                <option value="Guide">Guide</option>
-                <option value="Salesperson">Salesperson</option>
-                <option value="Cleaner">Cleaner</option>
-              </select>
-              <div [hidden]="!salespersonJobTitle.errors?.required" class="invalid-feedback">
-                Job Title required
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="salary">Salary</label>
-              <input type="text" class="form-control" name="salary" #salespersonSalary="ngModel" [ngClass]="{'is-invalid': salespersonSalary.errors && salespersonSalary.touched}"
-                [(ngModel)]="salesperson.salary" required>
-              <div [hidden]="!salespersonSalary.errors?.required" class="invalid-feedback">
-                Salary required
-              </div>
-            </div>
-
-            <!-- 通过登陆自动判断store id，存放在local storage -->
-            <div class="form-group">
-              <label for="store_id">Salary</label>
-              <input type="text" class="form-control" name="store_id" #salespersonStoreId="ngModel" [ngClass]="{'is-invalid': salespersonStoreId.errors && salespersonStoreId.touched}"
-                [(ngModel)]="salesperson.store_id" required>
-              <div [hidden]="!salespersonStoreId.errors?.required" class="invalid-feedback">
-                Store ID required
+              <label for="order_date">Order Date</label>
+              <input type="string" disabled="disabled" class="form-control" name="order_date" #inventoryOrderDate="ngModel" [ngClass]="{'is-invalid': inventoryOrderDate.errors && inventoryOrderDate.touched}"
+                [(ngModel)]="inventory.order_date" required>
+              <div [hidden]="!inventoryOrderDate.errors?.required" class="invalid-feedback">
+                Order Date
               </div>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary btn-block">

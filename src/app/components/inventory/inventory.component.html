@@ -3,14 +3,11 @@
     <div class="col-md-12">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" [routerLink]="['/inventory']">All Inventory</a>
+          <a class="nav-link active" [routerLink]="['/inventory']">All Inventorys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " [routerLink]="['add']">Add New Inventories</a>
+          <a class="nav-link " [routerLink]="['add']">Add New Inventory</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" [routerLink]="['update']">Update Inventory</a>
-          </li>
       </ul>
     </div>
     <br>
@@ -21,17 +18,16 @@
       <div class="card">
         <div class="header">
           <h4 class="title">Inventory</h4>
-          <p class="category">All Inventories</p>
+          <p class="category">All Inventorys</p>
         </div>
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
             <thead>
-              <th>Order ID</th>
-              <th>Order Date</th>
-              <th>Product ID</th>
-              <th>Quantity</th>
-              <th></th>
-              <th></th>
+              <th style="width:25%">Order ID</th>
+              <th style="width:25%">Order Date</th>
+              <th style="width:25%">Product ID</th>
+              <th style="width:25%">Quantity</th>
+              <th style="width:20%"></th>
             </thead>
             <tbody>
               <tr *ngFor="let inventory of inventories">
@@ -39,12 +35,9 @@
                 <td>{{inventory.order_date}}</td>
                 <td>{{inventory.product_id}}</td>
                 <td>{{inventory.quantity}}</td>
-                <td>
-                  <button (click)="onDeleteClick(inventory.order_id)" class="btn btn-danger">Delete</button>
-                </td>
-                <td>
-                  <button (click)="onUpdateClick(inventory.order_id)" class="btn btn-warning">Update</button>
-                </td>
+                <td class="">
+                    <button (click)="onDeleteClick(inventory.order_id)" class="btn btn-danger">Delete</button>
+                  </td>
               </tr>
             </tbody>
           </table>
