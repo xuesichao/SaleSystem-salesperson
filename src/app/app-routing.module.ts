@@ -26,11 +26,13 @@ import { AggTotalProfitComponent } from './components/agg-total-profit/agg-total
 import { AggTopProductCategoriesComponent } from './components/agg-top-product-categories/agg-top-product-categories.component';
 import { AggTopBusinessComponent } from './components/agg-top-business/agg-top-business.component';
 import { AggRegionCompareComponent } from './components/agg-region-compare/agg-region-compare.component';
+import { BrowserHomeComponent } from './components/browser/browser-home/browser-home.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'browser', component: BrowserHomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'customer', component: CustomerComponent },
   { path: 'customer/add', component: AddCustomerComponent },

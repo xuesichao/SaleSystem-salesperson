@@ -5,4 +5,5 @@ export interface Product {
   cost?:number;
   kind?:string;
   price?:number;
+  path?:string;
 }

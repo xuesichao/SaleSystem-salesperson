@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Aggregation } from 'src/app/models/Aggregation';
 import { AggregationService } from '../../services/aggregation.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { getPluralCategory } from '@angular/common/src/i18n/localization';
+
 @Component({
   selector: 'app-agg-top-business',
   templateUrl: './agg-top-business.component.html',

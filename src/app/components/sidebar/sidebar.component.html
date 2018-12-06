@@ -6,13 +6,19 @@
       </a>
     </div>
     <ul class="nav">
+      <li class="" (click)="changeColor0()">
+        <a id="cs0" [routerLink]="['/browser']" class="nav-link">
+          <i class="fa fa-th-list"></i>
+          BROWSER
+        </a>
+      </li>
       <li *ngIf="isSalesperson" class="" (click)="changeColor1()">
         <a id="cs1" [routerLink]="['/customer']" class="nav-link">
           <i class="fa fa-users"></i>
           CUSTOMER
         </a>
       </li>
-      <li *ngIf="isSalesperson" class="" (click)="changeColor2()">
+      <li *ngIf="isSalesperson || isRegionManager" class="" (click)="changeColor2()">
         <a id="cs2" [routerLink]="['/product']" class="nav-link">
           <i class="fa fa-shopping-cart"></i>
           PRODUCT

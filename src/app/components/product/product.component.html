@@ -5,10 +5,10 @@
         <li class="nav-item">
           <a class="nav-link active" [routerLink]="['/product']">All Products</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isRegionManager" class="nav-item">
           <a class="nav-link " [routerLink]="['add']">Add New Product</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isRegionManager" class="nav-item">
           <a class="nav-link disabled">Update Product</a>
         </li>
       </ul>
@@ -32,8 +32,8 @@
               <th style="width:16.66%">Cost</th>
               <th style="width:16.66%">Price</th>
               <th style="width:16.66%">Amount</th>
-              <th style="width:10%"></th>
-              <th style="width:10%"></th>
+              <th *ngIf="isRegionManager" style="width:10%"></th>
+              <th *ngIf="isRegionManager" style="width:10%"></th>
 
             </thead>
             <tbody>
@@ -44,10 +44,10 @@
                 <td>{{product.cost}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.amount}}</td>
-                <td>
+                <td *ngIf="isRegionManager">
                   <button (click)="onDeleteClick(product.product_id)" class="btn btn-danger">Delete</button>
                 </td>
-                <td>
+                <td *ngIf="isRegionManager">
                   <button (click)="onUpdateClick(product.product_id)" class="btn btn-warning">Update</button>
                 </td>
               </tr>

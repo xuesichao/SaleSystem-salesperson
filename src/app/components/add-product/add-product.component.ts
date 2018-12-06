@@ -9,20 +9,19 @@ import { RegionManagerService } from '../../services/region-manager.service';
 })
 export class AddProductComponent implements OnInit {
   product: Product = {
-    product_id:'',
-    product_name:'',
-    amount:0,
-    cost:0,
-    kind:'',
-    price:0,
+    product_id: '',
+    product_name: '',
+    amount: 0,
+    cost: 0,
+    kind: '',
+    price: 0,
   }
   constructor(
     private flashMessage: FlashMessagesService,
     private regionManagerService: RegionManagerService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
   onSubmit({ value, valid }: { value: Product, valid: boolean }) {
     if (!valid) {
       this.flashMessage.show('Please fill out the form correctly', {

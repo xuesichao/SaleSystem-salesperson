@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  isRegionManager: boolean;  
   products: Product[];
+  job_title:string;
   constructor(
     private regionManagerService: RegionManagerService,
     private salespersonService: SalespersonService,
@@ -22,6 +24,11 @@ export class ProductComponent implements OnInit {
     this.salespersonService.getProducts().subscribe(products => {
       this.products = products
     })
+    this.job_title = window.localStorage.getItem('job_title');
+    console.log(this.job_title);
+    if (this.job_title == 'region_manager') {
+      this.isRegionManager = true;
+    }
   }
   onDeleteClick(id) {
     if (confirm('Are you sure?')) {
