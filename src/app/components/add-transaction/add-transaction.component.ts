@@ -43,17 +43,17 @@ export class AddTransactionComponent implements OnInit {
     } else {
       this.salespersonService.getProduct(this.transaction.product_id).subscribe(products => {
         this.products = products;
+        if (this.transaction.quantity > this.products[0]["amount"]) {
+          this.flashMessage.show('Insufficient inventory, purchase failure, current inventory:' + this.products[0]["amount"], {
+            cssClass: 'alert-danger', timeout: 5000
+          });
+        } else {
+          this.salespersonService.addTransaction(this.transaction).subscribe();
+          this.flashMessage.show('New transaction added', {
+            cssClass: 'alert-success', timeout: 1500
+          });
+        }
       })
-      if (this.transaction.quantity > this.products[0]["amount"]) {
-        this.flashMessage.show('Insufficient inventory, purchase failure, current inventory:' + this.products[0]["amount"], {
-          cssClass: 'alert-danger', timeout: 5000
-        });
-      } else {
-        this.salespersonService.addTransaction(this.transaction).subscribe();
-        this.flashMessage.show('New transaction added', {
-          cssClass: 'alert-success', timeout: 1500
-        });
-      }
     }
   }
 

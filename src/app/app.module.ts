@@ -27,6 +27,11 @@ import { UpdateSalespersonComponent } from './components/update-salesperson/upda
 import { UpdateStoreComponent } from './components/update-store/update-store.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { AggTotalSalesComponent } from './components/agg-total-sales/agg-total-sales.component';
+import { AggTotalProfitComponent } from './components/agg-total-profit/agg-total-profit.component';
+import { AggTopProductCategoriesComponent } from './components/agg-top-product-categories/agg-top-product-categories.component';
+import { AggTopBusinessComponent } from './components/agg-top-business/agg-top-business.component';
+import { AggRegionCompareComponent } from './components/agg-region-compare/agg-region-compare.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,11 @@ import { UpdateProductComponent } from './components/update-product/update-produ
     UpdateStoreComponent,
     UpdateCustomerComponent,
     UpdateProductComponent,
+    AggTotalSalesComponent,
+    AggTotalProfitComponent,
+    AggTopProductCategoriesComponent,
+    AggTopBusinessComponent,
+    AggRegionCompareComponent,
   ],
   imports: [
     FlashMessagesModule.forRoot(),

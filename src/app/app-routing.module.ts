@@ -21,6 +21,11 @@ import { UpdateSalespersonComponent } from './components/update-salesperson/upda
 import { UpdateStoreComponent } from './components/update-store/update-store.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+import { AggTotalSalesComponent } from './components/agg-total-sales/agg-total-sales.component';
+import { AggTotalProfitComponent } from './components/agg-total-profit/agg-total-profit.component';
+import { AggTopProductCategoriesComponent } from './components/agg-top-product-categories/agg-top-product-categories.component';
+import { AggTopBusinessComponent } from './components/agg-top-business/agg-top-business.component';
+import { AggRegionCompareComponent } from './components/agg-region-compare/agg-region-compare.component';
 
 
 const routes: Routes = [
@@ -49,6 +54,13 @@ const routes: Routes = [
   { path: 'inventory/add', component: AddInventoryComponent },
   
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard/agg-1', component: AggTotalSalesComponent },
+  { path: 'dashboard/agg-2', component: AggTotalProfitComponent },
+  { path: 'dashboard/agg-3', component: AggTopProductCategoriesComponent },
+  { path: 'dashboard/agg-4', component: AggTopBusinessComponent },
+  { path: 'dashboard/agg-5', component: AggRegionCompareComponent },
+
+
 ];
 
 @NgModule({
