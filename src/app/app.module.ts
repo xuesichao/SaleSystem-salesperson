@@ -32,6 +32,7 @@ import { AggTotalProfitComponent } from './components/agg-total-profit/agg-total
 import { AggTopProductCategoriesComponent } from './components/agg-top-product-categories/agg-top-product-categories.component';
 import { AggTopBusinessComponent } from './components/agg-top-business/agg-top-business.component';
 import { AggRegionCompareComponent } from './components/agg-region-compare/agg-region-compare.component';
+import { BrowserHomeComponent } from './components/browser/browser-home/browser-home.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AggRegionCompareComponent } from './components/agg-region-compare/agg-r
     AggTopProductCategoriesComponent,
     AggTopBusinessComponent,
     AggRegionCompareComponent,
+    BrowserHomeComponent,
   ],
   imports: [
     FlashMessagesModule.forRoot(),

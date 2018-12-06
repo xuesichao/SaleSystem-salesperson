@@ -26,17 +26,19 @@
     <div class="col-md-12">
       <div class="card">
         <div class="header">
-          <h4 class="title">Total Sales</h4>
+          <h4 class="title">Region Sales Compare</h4>
           <p class="category">Data Statistic</p>
         </div>
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
             <thead>
-              <th></th>
+              <th>Region Name</th>
+              <th>Total Sales</th>
             </thead>
             <tbody>
-              <tr *ngFor="let aggregation of aggregations1">
-                <td>{{aggregation.salesperson_id}}</td>
+              <tr *ngFor="let aggregation of aggregations">
+                <td>{{aggregation.region_name}}</td>
+                <td>{{aggregation.sum_quantity}}</td>
               </tr>
             </tbody>
           </table>

@@ -14,10 +14,7 @@ export class AggRegionCompareComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-  }
-  onClick(id) {
-    this.aggregationService.getRegionsCompare(id).subscribe(aggregations => {
+    this.aggregationService.getRegionsCompare().subscribe(aggregations => {
       this.aggregations = aggregations
     })
   }

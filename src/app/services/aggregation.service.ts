@@ -27,11 +27,11 @@ export class AggregationService {
     let url = 'http://localhost:5000/aggregation/top_product';
     return this.http.get<Aggregation[]>(url);
   }
-  getTopBusinesses() {
+  getRegionsCompare() {
     let url = 'http://localhost:5000/aggregation/region_sales';
     return this.http.get<Aggregation[]>(url);
   }
-  getRegionsCompare(id) {
+  getTopBusinesses(id) {
     let url = 'http://localhost:5000/aggregation/product_business/' + id;
     return this.http.get<Aggregation[]>(url);
   }
